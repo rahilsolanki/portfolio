@@ -211,11 +211,11 @@ export default function Contact() {
             </div>
 
             {/* Submit button + status */}
-            <div className="flex items-center gap-4 pt-1">
+            <div className="flex sm:flex-row flex-col items-center gap-4 pt-1">
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="btn-primary inline-flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                className="btn-primary inline-flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed w-full sm:w-auto"
               >
                 {status === 'sending' ? (
                   <>

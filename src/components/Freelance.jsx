@@ -92,7 +92,7 @@ export default function Freelance() {
 
           <a
             href={`mailto:${personalInfo.email}?subject=Freelance%20Project%20Inquiry`}
-            className="btn-primary inline-flex items-center gap-2 shrink-0"
+            className="btn-primary inline-flex items-center justify-center gap-2 shrink-0 text-center w-full sm:w-auto"
           >
             Discuss a Project
             <ArrowRight size={14} />
