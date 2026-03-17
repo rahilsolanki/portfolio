@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/avatar.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta -->
+    <title>Solanki Rahil — Software Engineer | React · Next.js · TypeScript</title>
+    <meta name="description" content="Software Engineer with 3.5+ years building performant web apps using React.js, Next.js, and TypeScript. Open to new opportunities." />
+    <meta name="keywords" content="Software Engineer, Frontend Developer, React.js, Next.js, TypeScript, JavaScript, Redux Toolkit" />
+    <meta name="author" content="Solanki Rahil" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Solanki Rahil — Software Engineer" />
+    <meta property="og:description" content="Building performant, scalable web apps with React, Next.js & TypeScript — 3.5+ years experience." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourportfolio.com" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Solanki Rahil — Software Engineer" />
+    <meta name="twitter:description" content="Building performant web apps with React, Next.js & TypeScript." />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!--
+      Blocking theme script — runs synchronously before any CSS is applied.
+      Reads localStorage and applies 'dark' class to <html> immediately,
+      preventing a flash of wrong theme on page load.
+    -->
+    <script>
+      ;(function () {
+        var stored = localStorage.getItem('theme')
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        // Default to dark if no stored preference
+        var isDark = stored === 'dark' || (stored === null && prefersDark) || stored === null
+        if (isDark) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+      })()
+    </script>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
