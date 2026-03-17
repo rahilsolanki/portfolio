@@ -31,7 +31,6 @@ export const skills = {
     'Redux Toolkit',
     'HTML5',
     'CSS3',
-    'SCSS',
     'Tailwind CSS',
     'Material UI',
     'Bootstrap',
@@ -97,6 +96,7 @@ export const projects = [
     github: '#', // TODO: Replace with real GitHub URL
     live: '#',   // TODO: Replace with live demo URL
     featured: true,
+    company: 'CoderKube Technology',
   },
   {
     name: 'JDWebnShip',
@@ -105,8 +105,9 @@ export const projects = [
       'Built a theme-based e-commerce storefront from scratch with React.js and integrated third-party APIs. Migrated the entire frontend to Next.js, improving SEO scores and page load performance.',
     tech: ['React.js', 'Next.js', 'REST API', 'CSS3', 'JavaScript'],
     github: '#',
-    live: '#',
+    live: 'https://moinjd.jdwebnship.com/',
     featured: true,
+    company: 'CoderKube Technology',
   },
   {
     name: 'ISSO',
@@ -115,8 +116,9 @@ export const projects = [
       'Developed a full admin dashboard and user portal with REST API integration. Delivered a fully responsive UI with role-based access patterns and real-time data updates.',
     tech: ['React.js', 'TypeScript', 'REST API', 'Tailwind CSS'],
     github: '#',
-    live: '#',
+    live: 'https://isso.tjcg.in/login',
     featured: false,
+    company: 'TJCG',
   },
   {
     name: 'Virtual Afsar',
@@ -127,7 +129,18 @@ export const projects = [
     github: '#',
     live: '#',
     featured: false,
+    company: 'TJCG',
   },
+  {
+    name: 'Login and signup From with validation',
+    type: 'npm package',
+    description: 'A simple and reusable login and signup form with validation.',
+    tech: ['React.js', 'JavaScript', 'CSS3'],
+    github: 'https://github.com/rahilsolanki/loginForm',
+    live: 'https://github.com/rahilsolanki/loginForm',
+    featured: false,
+    company: 'Personal Project',
+  }
 ]
 
 // ─── Freelance ────────────────────────────────────────────────────────────
