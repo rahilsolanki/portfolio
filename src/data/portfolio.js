@@ -9,8 +9,8 @@ export const personalInfo = {
   email: 'rahilsolanki19@gmail.com',
   phone: '+919157068623', // TODO: Replace with your full number
   location: 'Navsari, Gujarat, India',
-  linkedin: 'https://linkedin.com/in/yourprofile', // TODO: Replace with your LinkedIn URL
-  github: 'https://github.com/yourhandle',       // TODO: Replace with your GitHub URL
+  linkedin: 'https://www.linkedin.com/in/rahilsolanki', // TODO: Replace with your LinkedIn URL
+  github: 'https://github.com/rahilsolanki',       // TODO: Replace with your GitHub URL
   resumeUrl: '/resume.pdf',                         // TODO: Add your resume PDF to /public/
 
   // Profile avatar — swap with any image path inside /public/
