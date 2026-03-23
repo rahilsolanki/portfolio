@@ -142,7 +142,7 @@ export const projects = [
     description: 'A simple and reusable login and signup form with validation.',
     tech: ['React.js', 'JavaScript', 'CSS3'],
     github: 'https://github.com/rahilsolanki/loginForm',
-    live: 'https://github.com/rahilsolanki/loginForm',
+    live: 'https://www.npmjs.com/package/react-signup-form',
     featured: false,
     company: 'Personal Project',
   }
