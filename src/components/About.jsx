@@ -3,7 +3,7 @@ import { certifications, education, personalInfo } from '../data/portfolio'
 import { Award, GraduationCap, MapPin } from 'lucide-react'
 
 const STATS = [
-  { value: '3.5+', label: 'Years Experience' },
+  { value: '2.5+', label: 'Years Experience' },
   { value: '4+', label: 'Projects Delivered' },
   { value: '6', label: 'Certifications' },
   { value: '3', label: 'Companies' },
@@ -16,9 +16,8 @@ export default function About() {
     <section id="about" className="py-24 px-6">
       <div
         ref={ref}
-        className={`max-w-5xl mx-auto transition-all duration-700 ease-out ${
-          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-        }`}
+        className={`max-w-5xl mx-auto transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
       >
         <p className="section-label">About</p>
         <h2 className="section-title">Who I Am</h2>
@@ -29,7 +28,7 @@ export default function About() {
             <p>
               I'm a versatile Software Engineer with{' '}
               <strong className="text-gray-800 dark:text-[#d0d0d0] font-medium">
-                3.5+ years of experience
+                2.5+ years of experience
               </strong>{' '}
               crafting performant, responsive web applications. My core expertise lies in the React
               ecosystem — building complex UIs with React.js, Next.js, and TypeScript while keeping

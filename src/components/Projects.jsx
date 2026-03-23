@@ -13,50 +13,77 @@ function ProjectCard({ project }) {
   const typeStyle = TYPE_STYLES[project.type] ?? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-500/20'
 
   return (
-    <article className="card card-hover p-6 flex flex-col h-full group">
-      {/* Top row */}
-      <div className="flex items-start justify-between mb-4">
-        <Folder size={22} className="text-indigo-400/50 dark:text-indigo-400/60" aria-hidden="true" />
-        <div className="flex items-center gap-3">
-          {project.github && project.github !== '#' && (
-            <a href={project.github} target="_blank" rel="noopener noreferrer"
-              aria-label={`${project.name} GitHub`}
-              className="text-gray-300 dark:text-[#444] hover:text-gray-700 dark:hover:text-[#f0f0f0] transition-colors duration-200">
-              <Github size={16} />
-            </a>
+    <article className="group perspective-[1000px] h-[360px] w-full cursor-pointer">
+      <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] rounded-2xl shadow-sm hover:shadow-xl dark:shadow-none">
+
+        {/* FRONT FACE (Image + Title) */}
+        <div className="absolute inset-0 [backface-visibility:hidden] bg-gray-900 rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5">
+          {project.image ? (
+            <img src={project.image} alt={project.name} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000" />
+          ) : (
+            <div className="absolute inset-0 bg-indigo-900/40" />
           )}
-          {project.live && project.live !== '#' && (
-            <a href={project.live} target="_blank" rel="noopener noreferrer"
-              aria-label={`${project.name} live demo`}
-              className="text-gray-300 dark:text-[#444] hover:text-gray-700 dark:hover:text-[#f0f0f0] transition-colors duration-200">
-              <ExternalLink size={16} />
-            </a>
-          )}
+
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/40 to-transparent" />
+
+          {/* Type Badge Top Left */}
+          <div className="absolute top-5 left-5 z-10">
+            <span className={`text-[10px] px-3 py-1.5 rounded-full font-medium shadow-sm backdrop-blur-md bg-white/10 border-white/20 text-white border`}>
+              {project.type}
+            </span>
+          </div>
+
+          <div className="absolute inset-x-0 bottom-0 p-6 z-10">
+            <h3 className="text-2xl font-bold text-white mb-1.5 drop-shadow-md">
+              {project.name}
+            </h3>
+            {project.company && (
+              <p className="text-sm text-gray-300 font-medium drop-shadow-sm flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                {project.company}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
 
-      {/* Type badge */}
-      <span className={`self-start text-xs px-2.5 py-1 rounded-full border mb-3 ${typeStyle}`}>
-        {project.type}
-      </span>
+        {/* BACK FACE (Details) */}
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-white dark:bg-[#111] border border-gray-100 dark:border-white/5 rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex items-center gap-2">
+                {project.github && project.github !== '#' && (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer"
+                    aria-label={`${project.name} GitHub`}
+                    className="text-gray-400 hover:text-gray-800 dark:text-gray-500 dark:hover:text-white transition-colors p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full">
+                    <Github size={18} />
+                  </a>
+                )}
+                {project.live && project.live !== '#' && (
+                  <a href={project.live} target="_blank" rel="noopener noreferrer"
+                    aria-label={`${project.name} live demo`}
+                    className="text-gray-400 hover:text-gray-800 dark:text-gray-500 dark:hover:text-white transition-colors p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full">
+                    <ExternalLink size={18} />
+                  </a>
+                )}
+              </div>
+            </div>
 
-      {/* Title */}
-      <h3 className="text-base font-semibold text-gray-800 dark:text-[#e8e8e8] mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors duration-200">
-        {project.name}
-      </h3>
+            <h4 className="text-lg font-semibold text-gray-800 dark:text-[#e8e8e8] mb-3">{project.name}</h4>
+            <p className="text-sm text-gray-500 dark:text-[#888] leading-relaxed line-clamp-5">
+              {project.description}
+            </p>
+          </div>
 
-      {/* Description */}
-      <p className="text-sm text-gray-500 dark:text-[#666] leading-relaxed flex-1 mb-4">
-        {project.description}
-      </p>
+          {/* Tech chips */}
+          <div className="flex flex-wrap gap-1.5 mt-4">
+            {project.tech.map((t) => (
+              <span key={t} className="text-[11px] px-2.5 py-1 rounded-md bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-500/20">
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
 
-      {/* Tech chips */}
-      <div className="flex flex-wrap gap-1.5">
-        {project.tech.map((t) => (
-          <span key={t} className="text-[11px] px-2 py-0.5 rounded bg-gray-100 dark:bg-[#161616] text-gray-500 dark:text-[#666] border border-gray-200 dark:border-[#222]">
-            {t}
-          </span>
-        ))}
       </div>
     </article>
   )
@@ -69,14 +96,13 @@ export default function Projects() {
     <section id="projects" className="py-24 px-6">
       <div
         ref={ref}
-        className={`max-w-5xl mx-auto transition-all duration-700 ease-out ${
-          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-        }`}
+        className={`max-w-5xl mx-auto transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
       >
         <p className="section-label">Work</p>
         <h2 className="section-title">Featured Projects</h2>
 
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
           {projects.map((project) => (
             <ProjectCard key={project.name} project={project} />
           ))}

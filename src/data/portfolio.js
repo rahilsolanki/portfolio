@@ -5,7 +5,7 @@ export const personalInfo = {
   initials: '',
   title: 'Software Engineer',
   tagline:
-    'Building performant, scalable web apps with React, Next.js & TypeScript — 3.5+ years of shipping real products.',
+    'Building performant, scalable web apps with React, Next.js & TypeScript — 2.5+ years of shipping real products.',
   email: 'rahilsolanki19@gmail.com',
   phone: '+919157068623', // TODO: Replace with your full number
   location: 'Navsari, Gujarat, India',
@@ -90,17 +90,19 @@ export const projects = [
   {
     name: 'Sudia League',
     type: 'Gaming Platform',
+    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop',
     description:
       'Developed frontend modules and RESTful APIs for a real-time gaming platform. Integrated backend services supporting live user interactions, leaderboards, and dynamic game features.',
     tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST API'],
     github: '#', // TODO: Replace with real GitHub URL
-    live: '#',   // TODO: Replace with live demo URL
+    live: 'https://primeeleague.com/prime',   // TODO: Replace with live demo URL
     featured: true,
     company: 'CoderKube Technology',
   },
   {
     name: 'JDWebnShip',
     type: 'E-commerce',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop',
     description:
       'Built a theme-based e-commerce storefront from scratch with React.js and integrated third-party APIs. Migrated the entire frontend to Next.js, improving SEO scores and page load performance.',
     tech: ['React.js', 'Next.js', 'REST API', 'CSS3', 'JavaScript'],
@@ -112,6 +114,7 @@ export const projects = [
   {
     name: 'ISSO',
     type: 'Admin Dashboard',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
     description:
       'Developed a full admin dashboard and user portal with REST API integration. Delivered a fully responsive UI with role-based access patterns and real-time data updates.',
     tech: ['React.js', 'TypeScript', 'REST API', 'Tailwind CSS'],
@@ -123,6 +126,7 @@ export const projects = [
   {
     name: 'Virtual Afsar',
     type: 'Web App',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
     description:
       'Built reusable frontend modules with complete API integration. Ensured cross-platform compatibility and a consistent, accessible user experience across major browsers and devices.',
     tech: ['React.js', 'JavaScript', 'REST API', 'Bootstrap'],
@@ -134,6 +138,7 @@ export const projects = [
   {
     name: 'Login and signup From with validation',
     type: 'npm package',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop',
     description: 'A simple and reusable login and signup form with validation.',
     tech: ['React.js', 'JavaScript', 'CSS3'],
     github: 'https://github.com/rahilsolanki/loginForm',
