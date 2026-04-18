@@ -1,5 +1,5 @@
-import { useInView } from '../hooks/useInView'
-import { experience } from '../data/portfolio'
+import { useInView } from '../../hooks/useInView'
+import { experience } from '../../data/portfolio'
 
 export default function Experience() {
   const [ref, inView] = useInView()

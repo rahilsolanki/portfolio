@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Linkedin, Github, ArrowUpRight, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
-import { useInView } from '../hooks/useInView'
-import { personalInfo } from '../data/portfolio'
+import { useInView } from '../../hooks/useInView'
+import { personalInfo } from '../../data/portfolio'
 
 const INPUT_BASE =
   'w-full px-4 py-3 rounded-lg text-sm transition-all duration-200 outline-none ' +

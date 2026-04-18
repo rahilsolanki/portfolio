@@ -1,6 +1,6 @@
 import { Code, Zap, Layout, RefreshCw, ArrowRight, CheckCircle } from 'lucide-react'
-import { useInView } from '../hooks/useInView'
-import { freelance, personalInfo } from '../data/portfolio'
+import { useInView } from '../../hooks/useInView'
+import { freelance, personalInfo } from '../../data/portfolio'
 
 const ICONS = {
   code: Code,

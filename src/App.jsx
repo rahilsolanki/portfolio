@@ -1,13 +1,13 @@
-import AnimatedBackground from './components/AnimatedBackground'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Skills from './components/Skills'
-import Experience from './components/Experience'
-import Projects from './components/Projects'
-import Freelance from './components/Freelance'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import AnimatedBackground from './components/layout/AnimatedBackground'
+import Navbar from './components/layout/Navbar'
+import Hero from './components/sections/Hero'
+import About from './components/sections/About'
+import Skills from './components/sections/Skills'
+import Experience from './components/sections/Experience'
+import Projects from './components/sections/Projects'
+import Freelance from './components/sections/Freelance'
+import Contact from './components/sections/Contact'
+import Footer from './components/layout/Footer'
 
 export default function App() {
   return (

@@ -1,6 +1,6 @@
 import { ExternalLink, Github, Folder } from 'lucide-react'
-import { useInView } from '../hooks/useInView'
-import { projects, personalInfo } from '../data/portfolio'
+import { useInView } from '../../hooks/useInView'
+import { projects, personalInfo } from '../../data/portfolio'
 
 const TYPE_STYLES = {
   'Gaming Platform': 'bg-violet-50 dark:bg-violet-500/10 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-500/20',

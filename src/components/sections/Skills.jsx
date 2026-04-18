@@ -1,77 +1,13 @@
-import { useInView } from '../hooks/useInView'
-import { skills, keyHighlights, collaboration, collaborationTools } from '../data/portfolio'
-import { Layers, Terminal, Cpu, TrendingUp, Users, MessageSquare, Ticket, Globe, Code2 } from 'lucide-react'
+import React from 'react'
+import { useInView } from '../../hooks/useInView'
+import { skills, keyHighlights, collaboration, collaborationTools } from '../../data/portfolio'
+import { TrendingUp, Users, Code2 } from 'lucide-react'
 import {
-  SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiRedux,
-  SiHtml5, SiCss, SiTailwindcss, SiMui, SiBootstrap,
-  SiNodedotjs, SiExpress, SiMongodb,
-  SiGit, SiGithub, SiSlack, SiPostman, SiJira, SiConfluence,
-} from 'react-icons/si'
-
-// ─── Skill brand icon map ──────────────────────────────────────────────────
-const SKILL_ICONS = {
-  'React.js': { Icon: SiReact, color: '#61DAFB' },
-  'Next.js': { Icon: SiNextdotjs, color: '#ffffff' },
-  'TypeScript': { Icon: SiTypescript, color: '#3178C6' },
-  'JavaScript': { Icon: SiJavascript, color: '#F7DF1E' },
-  'Redux': { Icon: SiRedux, color: '#764ABC' },
-  'HTML5': { Icon: SiHtml5, color: '#E34F26' },
-  'CSS3': { Icon: SiCss, color: '#1572B6' },
-  'Tailwind CSS': { Icon: SiTailwindcss, color: '#06B6D4' },
-  'Material UI': { Icon: SiMui, color: '#007FFF' },
-  'Bootstrap': { Icon: SiBootstrap, color: '#7952B3' },
-  'Node.js': { Icon: SiNodedotjs, color: '#339933' },
-  'Express.js': { Icon: SiExpress, color: '#ffffff' },
-  'MongoDB': { Icon: SiMongodb, color: '#47A248' },
-  'REST API': { Icon: Globe, color: '#888888' },
-  // 'Git': { Icon: SiGit, color: '#F05032' },
-  // 'GitHub': { Icon: SiGithub, color: '#ffffff' },
-  // 'Postman': { Icon: SiPostman, color: '#FF6C37' },
-  // 'Jira': { Icon: SiJira, color: '#0052CC' },
-  // 'Confluence': { Icon: SiConfluence, color: '#0052CC' },
-}
-
-// ─── Collab tool icon map ──────────────────────────────────────────────────
-const COLLAB_ICONS = {
-  Git: { Icon: SiGit, color: '#F05032' },
-  GitHub: { Icon: SiGithub, color: '#ffffff' },
-  Slack: { Icon: SiSlack, color: '#E01E5A' },
-  MSTeams: { Icon: MessageSquare, color: '#6264A7' },
-  Postman: { Icon: SiPostman, color: '#FF6C37' },
-  // ServiceNow: { Icon: Ticket, color: '#62D84E' },
-  // Jira: { Icon: SiJira, color: '#0052CC' },
-  // Confluence: { Icon: SiConfluence, color: '#0052CC' },
-}
-
-const COLLAB_LABELS = {
-  Git: 'Git', GitHub: 'GitHub', Slack: 'Slack', MSTeams: 'MS Teams',
-  Postman: 'Postman', ServiceNow: 'ServiceNow', Jira: 'Jira', Confluence: 'Confluence',
-}
-
-// ─── Skill category config ─────────────────────────────────────────────────
-const CATEGORY_STYLES = {
-  Frontend: {
-    icon: <Layers size={20} />,
-    iconBg: 'bg-indigo-500/15',
-    iconColor: 'text-indigo-400',
-    accentFrom: 'from-indigo-500/10',
-    border: 'group-hover:border-indigo-500/30',
-  },
-  Backend: {
-    icon: <Terminal size={20} />,
-    iconBg: 'bg-emerald-500/15',
-    iconColor: 'text-emerald-400',
-    accentFrom: 'from-emerald-500/10',
-    border: 'group-hover:border-emerald-500/30',
-  },
-  'Tools & Platforms': {
-    icon: <Cpu size={20} />,
-    iconBg: 'bg-amber-500/15',
-    iconColor: 'text-amber-400',
-    accentFrom: 'from-amber-500/10',
-    border: 'group-hover:border-amber-500/30',
-  },
-}
+  SKILL_ICONS,
+  COLLAB_ICONS,
+  COLLAB_LABELS,
+  CATEGORY_STYLES
+} from '../../constants/skills'
 
 // ─── Sub-components ────────────────────────────────────────────────────────
 function SkillTag({ skill }) {
@@ -149,8 +85,9 @@ export default function Skills() {
     <section id="skills" className="py-24 px-6 relative">
       <div
         ref={ref}
-        className={`max-w-5xl mx-auto transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}
+        className={`max-w-5xl mx-auto transition-all duration-700 ease-out ${
+          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+        }`}
       >
         <p className="section-label">Skills &amp; Tools</p>
         <h2 className="section-title">Technical Stack</h2>

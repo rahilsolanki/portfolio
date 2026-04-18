@@ -1,10 +1,10 @@
-import { useInView } from '../hooks/useInView'
-import { certifications, education, personalInfo } from '../data/portfolio'
+import { useInView } from '../../hooks/useInView'
+import { certifications, education, personalInfo } from '../../data/portfolio'
 import { Award, GraduationCap, MapPin } from 'lucide-react'
 
 const STATS = [
   { value: '2.5+', label: 'Years Experience' },
-  { value: '4+', label: 'Projects Delivered' },
+  { value: '10+', label: 'Projects Delivered' },
   { value: '6', label: 'Certifications' },
   { value: '3', label: 'Companies' },
 ]

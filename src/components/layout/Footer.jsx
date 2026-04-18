@@ -1,4 +1,4 @@
-import { personalInfo } from '../data/portfolio'
+import { personalInfo } from '../../data/portfolio'
 import { Github, Linkedin, Mail, Phone } from 'lucide-react'
 
 const SOCIAL_LINKS = [

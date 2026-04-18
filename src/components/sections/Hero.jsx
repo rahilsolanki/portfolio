@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Github, Linkedin, Mail, ArrowDown, Download } from 'lucide-react'
-import { personalInfo } from '../data/portfolio'
+import { useInView } from '../../hooks/useInView'
+import { personalInfo } from '../../data/portfolio'
 
 export default function Hero() {
   const [displayedName, setDisplayedName] = useState('')
