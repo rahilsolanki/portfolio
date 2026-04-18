@@ -11,7 +11,7 @@ export const personalInfo = {
   location: 'Navsari, Gujarat, India',
   linkedin: 'https://www.linkedin.com/in/rahilsolanki', // TODO: Replace with your LinkedIn URL
   github: 'https://github.com/rahilsolanki',       // TODO: Replace with your GitHub URL
-  resumeUrl: '/resume.pdf',                         // TODO: Add your resume PDF to /public/
+  resumeUrl: '/Rahil_Solanki.pdf',                         // TODO: Add your resume PDF to /public/
 
   // Profile avatar — swap with any image path inside /public/
   avatarUrl: '/avatar.png',

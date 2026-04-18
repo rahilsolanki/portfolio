@@ -1,17 +1,10 @@
-import { ExternalLink, Github, Folder } from 'lucide-react'
-import { useInView } from '../../hooks/useInView'
+import React from 'react'
+import { ExternalLink, Github } from 'lucide-react'
 import { projects, personalInfo } from '../../data/portfolio'
-
-const TYPE_STYLES = {
-  'Gaming Platform': 'bg-violet-50 dark:bg-violet-500/10 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-500/20',
-  'E-commerce': 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-500/20',
-  'Admin Dashboard': 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-500/20',
-  'Web App': 'bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-500/20',
-}
+import Section from '../ui/Section'
+import Badge from '../ui/Badge'
 
 function ProjectCard({ project }) {
-  const typeStyle = TYPE_STYLES[project.type] ?? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-500/20'
-
   return (
     <article className="group perspective-[1000px] h-[360px] w-full cursor-pointer">
       <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] rounded-2xl shadow-sm hover:shadow-xl dark:shadow-none">
@@ -28,7 +21,7 @@ function ProjectCard({ project }) {
 
           {/* Type Badge Top Left */}
           <div className="absolute top-5 left-5 z-10">
-            <span className={`text-[10px] px-3 py-1.5 rounded-full font-medium shadow-sm backdrop-blur-md bg-white/10 border-white/20 text-white border`}>
+            <span className="text-[10px] px-3 py-1.5 rounded-full font-medium shadow-sm backdrop-blur-md bg-white/10 border-white/20 text-white border">
               {project.type}
             </span>
           </div>
@@ -77,9 +70,7 @@ function ProjectCard({ project }) {
           {/* Tech chips */}
           <div className="flex flex-wrap gap-1.5 mt-4">
             {project.tech.map((t) => (
-              <span key={t} className="text-[11px] px-2.5 py-1 rounded-md bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-500/20">
-                {t}
-              </span>
+              <Badge key={t} label={t} variant="tech" />
             ))}
           </div>
         </div>
@@ -90,32 +81,21 @@ function ProjectCard({ project }) {
 }
 
 export default function Projects() {
-  const [ref, inView] = useInView()
-
   return (
-    <section id="projects" className="py-24 px-6">
-      <div
-        ref={ref}
-        className={`max-w-5xl mx-auto transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}
-      >
-        <p className="section-label">Work</p>
-        <h2 className="section-title">Featured Projects</h2>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-          {projects.map((project) => (
-            <ProjectCard key={project.name} project={project} />
-          ))}
-        </div>
-
-        <p className="text-center text-sm text-gray-400 dark:text-[#444] mt-10">
-          More projects on{' '}
-          <a href={personalInfo.github} target="_blank" rel="noopener noreferrer"
-            className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors">
-            GitHub ↗
-          </a>
-        </p>
+    <Section id="projects" label="Work" title="Featured Projects">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+        {projects.map((project) => (
+          <ProjectCard key={project.name} project={project} />
+        ))}
       </div>
-    </section>
+
+      <p className="text-center text-sm text-gray-400 dark:text-[#444] mt-10">
+        More projects on{' '}
+        <a href={personalInfo.github} target="_blank" rel="noopener noreferrer"
+          className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors">
+          GitHub ↗
+        </a>
+      </p>
+    </Section>
   )
 }
