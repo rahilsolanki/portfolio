@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Github, Linkedin, Mail, ArrowDown, Download } from 'lucide-react'
-import { useInView } from '../../hooks/useInView'
 import { personalInfo } from '../../data/portfolio'
+import Badge from '../ui/Badge'
 
 export default function Hero() {
   const [displayedName, setDisplayedName] = useState('')
@@ -19,9 +19,10 @@ export default function Hero() {
         clearInterval(interval)
       }
     }, 150)
-    
+
     return () => clearInterval(interval)
   }, [])
+
   const scrollTo = (id) => {
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -29,9 +30,12 @@ export default function Hero() {
   return (
     <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6">
       {/* Availability badge */}
-      <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-400/30 dark:border-indigo-500/25 bg-indigo-50 dark:bg-indigo-500/8 text-indigo-700 dark:text-indigo-300 text-xs font-medium mb-7 animate-[fadeUp_0.5s_ease-out]">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
-        Available for opportunities
+      <div className="animate-[fadeUp_0.5s_ease-out] mb-7">
+        <Badge
+          label="Available for opportunities"
+          icon={() => <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />}
+          className="rounded-full px-4"
+        />
       </div>
 
       {/* Name */}

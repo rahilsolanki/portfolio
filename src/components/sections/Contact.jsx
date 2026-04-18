@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Linkedin, Github, ArrowUpRight, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
-import { useInView } from '../../hooks/useInView'
 import { personalInfo } from '../../data/portfolio'
+import Section from '../ui/Section'
+import Card from '../ui/Card'
 
 const INPUT_BASE =
   'w-full px-4 py-3 rounded-lg text-sm transition-all duration-200 outline-none ' +
@@ -10,7 +11,6 @@ const INPUT_BASE =
   'focus:border-indigo-400 dark:focus:border-indigo-500/50 focus:ring-2 focus:ring-indigo-500/10'
 
 export default function Contact() {
-  const [ref, inView] = useInView()
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [status, setStatus] = useState('idle') // idle | sending | success | error
 
@@ -52,97 +52,89 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 px-6">
-      <div
-        ref={ref}
-        className={`max-w-5xl mx-auto transition-all duration-700 ease-out ${
-          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-        }`}
-      >
-        <p className="section-label">Contact</p>
-        <h2 className="section-title">Get In Touch</h2>
+    <Section id="contact" label="Contact" title="Get In Touch">
+      <div className="grid md:grid-cols-2 gap-8 items-stretch">
+        {/* ── Left: Info card ── */}
+        <div className="flex flex-col gap-5">
+          <p className="text-gray-500 dark:text-[#777] text-sm leading-relaxed">
+            Have a project in mind or want to discuss an opportunity?
+            Fill out the form and I'll get back to you within 24 hours.
+          </p>
 
-        <div className="grid md:grid-cols-2 gap-8 items-stretch">
-          {/* ── Left: Info card ── */}
-          <div className="flex flex-col gap-5">
-            <p className="text-gray-500 dark:text-[#777] text-sm leading-relaxed">
-              Have a project in mind or want to discuss an opportunity?
-              Fill out the form and I'll get back to you within 24 hours.
-            </p>
-
-            <div className="card p-6 space-y-4 flex-1 flex flex-col justify-center">
-              {/* Email */}
-              <a href={`mailto:${personalInfo.email}`} className="flex items-center justify-between group">
-                <div className="flex items-center gap-3">
-                  <span className="w-9 h-9 rounded-lg bg-gray-100 dark:bg-[#161616] border border-gray-200 dark:border-[#222] flex items-center justify-center">
-                    <Mail size={15} className="text-indigo-600 dark:text-indigo-400" />
-                  </span>
-                  <div>
-                    <p className="text-[10px] text-gray-400 dark:text-[#555] uppercase tracking-wider mb-0.5">Email</p>
-                    <p className="text-sm text-gray-800 dark:text-[#d0d0d0] group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors duration-200">
-                      {personalInfo.email}
-                    </p>
-                  </div>
-                </div>
-                <ArrowUpRight size={14} className="text-gray-300 dark:text-[#444] group-hover:text-indigo-500 transition-colors duration-200" />
-              </a>
-
-              <div className="border-t border-gray-100 dark:border-[#1a1a1a]" />
-
-              {/* Phone */}
-              {personalInfo.phone && (
-                <>
-                  <a href={`tel:${personalInfo.phone}`} className="flex items-center justify-between group">
-                    <div className="flex items-center gap-3">
-                      <span className="w-9 h-9 rounded-lg bg-gray-100 dark:bg-[#161616] border border-gray-200 dark:border-[#222] flex items-center justify-center">
-                        <Phone size={15} className="text-violet-600 dark:text-violet-400" />
-                      </span>
-                      <div>
-                        <p className="text-[10px] text-gray-400 dark:text-[#555] uppercase tracking-wider mb-0.5">Phone</p>
-                        <p className="text-sm text-gray-800 dark:text-[#d0d0d0] group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors duration-200">
-                          {personalInfo.phone}
-                        </p>
-                      </div>
-                    </div>
-                    <ArrowUpRight size={14} className="text-gray-300 dark:text-[#444] group-hover:text-indigo-500 transition-colors duration-200" />
-                  </a>
-                  <div className="border-t border-gray-100 dark:border-[#1a1a1a]" />
-                </>
-              )}
-
-              {/* Location */}
+          <Card padding="p-6" className="space-y-4 flex-1 flex flex-col justify-center" hover={false}>
+            {/* Email */}
+            <a href={`mailto:${personalInfo.email}`} className="flex items-center justify-between group">
               <div className="flex items-center gap-3">
                 <span className="w-9 h-9 rounded-lg bg-gray-100 dark:bg-[#161616] border border-gray-200 dark:border-[#222] flex items-center justify-center">
-                  <MapPin size={15} className="text-emerald-600 dark:text-emerald-400" />
+                  <Mail size={15} className="text-indigo-600 dark:text-indigo-400" />
                 </span>
                 <div>
-                  <p className="text-[10px] text-gray-400 dark:text-[#555] uppercase tracking-wider mb-0.5">Location</p>
-                  <p className="text-sm text-gray-800 dark:text-[#d0d0d0]">{personalInfo.location}</p>
+                  <p className="text-[10px] text-gray-400 dark:text-[#555] uppercase tracking-wider mb-0.5">Email</p>
+                  <p className="text-sm text-gray-800 dark:text-[#d0d0d0] group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors duration-200">
+                    {personalInfo.email}
+                  </p>
                 </div>
               </div>
+              <ArrowUpRight size={14} className="text-gray-300 dark:text-[#444] group-hover:text-indigo-500 transition-colors duration-200" />
+            </a>
 
-              <div className="border-t border-gray-100 dark:border-[#1a1a1a]" />
+            <div className="border-t border-gray-100 dark:border-[#1a1a1a]" />
 
-              {/* Socials */}
-              <div className="flex items-center gap-5 pt-1">
-                {personalInfo.linkedin && (
-                  <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-gray-400 dark:text-[#666] hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">
-                    <Linkedin size={15} /> LinkedIn
-                  </a>
-                )}
-                {personalInfo.github && (
-                  <a href={personalInfo.github} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-gray-400 dark:text-[#666] hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">
-                    <Github size={15} /> GitHub
-                  </a>
-                )}
+            {/* Phone */}
+            {personalInfo.phone && (
+              <>
+                <a href={`tel:${personalInfo.phone}`} className="flex items-center justify-between group">
+                  <div className="flex items-center gap-3">
+                    <span className="w-9 h-9 rounded-lg bg-gray-100 dark:bg-[#161616] border border-gray-200 dark:border-[#222] flex items-center justify-center">
+                      <Phone size={15} className="text-violet-600 dark:text-violet-400" />
+                    </span>
+                    <div>
+                      <p className="text-[10px] text-gray-400 dark:text-[#555] uppercase tracking-wider mb-0.5">Phone</p>
+                      <p className="text-sm text-gray-800 dark:text-[#d0d0d0] group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors duration-200">
+                        {personalInfo.phone}
+                      </p>
+                    </div>
+                  </div>
+                  <ArrowUpRight size={14} className="text-gray-300 dark:text-[#444] group-hover:text-indigo-500 transition-colors duration-200" />
+                </a>
+                <div className="border-t border-gray-100 dark:border-[#1a1a1a]" />
+              </>
+            )}
+
+            {/* Location */}
+            <div className="flex items-center gap-3">
+              <span className="w-9 h-9 rounded-lg bg-gray-100 dark:bg-[#161616] border border-gray-200 dark:border-[#222] flex items-center justify-center">
+                <MapPin size={15} className="text-emerald-600 dark:text-emerald-400" />
+              </span>
+              <div>
+                <p className="text-[10px] text-gray-400 dark:text-[#555] uppercase tracking-wider mb-0.5">Location</p>
+                <p className="text-sm text-gray-800 dark:text-[#d0d0d0]">{personalInfo.location}</p>
               </div>
             </div>
-          </div>
 
-          {/* ── Right: Contact form ── */}
-          <form onSubmit={handleSubmit} className="card p-6 sm:p-8 space-y-4 flex flex-col">
+            <div className="border-t border-gray-100 dark:border-[#1a1a1a]" />
+
+            {/* Socials */}
+            <div className="flex items-center gap-5 pt-1">
+              {personalInfo.linkedin && (
+                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-gray-400 dark:text-[#666] hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">
+                  <Linkedin size={15} /> LinkedIn
+                </a>
+              )}
+              {personalInfo.github && (
+                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-gray-400 dark:text-[#666] hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">
+                  <Github size={15} /> GitHub
+                </a>
+              )}
+            </div>
+          </Card>
+        </div>
+
+        {/* ── Right: Contact form ── */}
+        <form onSubmit={handleSubmit}>
+          <Card padding="p-6 sm:p-8" className="space-y-4 flex flex-col" hover={false}>
             {/* Name + Email row */}
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
@@ -244,9 +236,9 @@ export default function Contact() {
                 </span>
               )}
             </div>
-          </form>
-        </div>
+          </Card>
+        </form>
       </div>
-    </section>
+    </Section>
   )
 }
