@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Sun, Moon } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { personalInfo } from '../data/portfolio'
 
 const NAV_LINKS = [
@@ -11,15 +11,8 @@ const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export default function Navbar({ isDark, toggleTheme }) {
-  const [scrolled, setScrolled] = useState(false)
+export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   const scrollTo = (e, href) => {
     e.preventDefault()
@@ -29,11 +22,7 @@ export default function Navbar({ isDark, toggleTheme }) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 dark:bg-[#080808]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#1a1a1a]'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/[0.04] shadow-sm shadow-black/20`}
     >
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo + swaying cartoon avatar */}
@@ -53,7 +42,6 @@ export default function Navbar({ isDark, toggleTheme }) {
                 height={40}
                 className="w-full h-full object-cover"
                 onError={(e) => {
-                  // fallback to initials if image fails to load
                   e.currentTarget.style.display = 'none'
                   e.currentTarget.nextSibling.style.display = 'flex'
                 }}
@@ -70,8 +58,7 @@ export default function Navbar({ isDark, toggleTheme }) {
 
           {/* Initials text beside avatar */}
           <span className="text-base font-bold tracking-wide">
-            <span className="text-indigo-600 dark:text-indigo-400">{personalInfo.initials}</span>
-            {/* <span className="text-gray-900 dark:text-[#f0f0f0]">.</span> */}
+            <span className="text-indigo-400">{personalInfo.initials}</span>
           </span>
         </a>
 
@@ -82,7 +69,7 @@ export default function Navbar({ isDark, toggleTheme }) {
               <a
                 href={link.href}
                 onClick={(e) => scrollTo(e, link.href)}
-                className="text-sm text-gray-500 dark:text-[#888] hover:text-gray-900 dark:hover:text-[#f0f0f0] transition-colors duration-200"
+                className="text-sm text-[#888] hover:text-[#f0f0f0] transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -90,18 +77,8 @@ export default function Navbar({ isDark, toggleTheme }) {
           ))}
         </ul>
 
-        {/* Right side: theme toggle + Hire Me */}
+        {/* Right side: Hire Me */}
         <div className="hidden md:flex items-center gap-3">
-          {/* Theme toggle */}
-          <button
-            onClick={toggleTheme}
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            className="p-2 rounded-lg text-gray-400 dark:text-[#666] hover:text-gray-700 dark:hover:text-[#f0f0f0] hover:bg-gray-100 dark:hover:bg-[#1a1a1a] transition-all duration-200"
-          >
-            {isDark ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
-
-          {/* Hire Me CTA */}
           <a
             href="#contact"
             onClick={(e) => scrollTo(e, '#contact')}
@@ -111,17 +88,10 @@ export default function Navbar({ isDark, toggleTheme }) {
           </a>
         </div>
 
-        {/* Mobile: theme toggle + hamburger */}
-        <div className="md:hidden flex items-center gap-2">
+        {/* Mobile: hamburger only */}
+        <div className="md:hidden flex items-center">
           <button
-            onClick={toggleTheme}
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            className="p-2 rounded-lg text-gray-400 dark:text-[#666] hover:text-gray-700 dark:hover:text-[#f0f0f0] hover:bg-gray-100 dark:hover:bg-[#1a1a1a] transition-all duration-200"
-          >
-            {isDark ? <Sun size={15} /> : <Moon size={15} />}
-          </button>
-          <button
-            className="p-1 text-gray-400 dark:text-[#888] hover:text-gray-900 dark:hover:text-[#f0f0f0] transition-colors"
+            className="p-1 text-[#888] hover:text-[#f0f0f0] transition-colors"
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Toggle navigation"
           >
@@ -132,9 +102,8 @@ export default function Navbar({ isDark, toggleTheme }) {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          menuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-        } bg-white dark:bg-[#0d0d0d] border-t border-gray-100 dark:border-[#1a1a1a]`}
+        className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+          } bg-[#0d0d0d] border-t border-[#1a1a1a]`}
       >
         <ul className="flex flex-col px-6 py-4 gap-4">
           {NAV_LINKS.map((link) => (
@@ -142,7 +111,7 @@ export default function Navbar({ isDark, toggleTheme }) {
               <a
                 href={link.href}
                 onClick={(e) => scrollTo(e, link.href)}
-                className="text-sm text-gray-500 dark:text-[#888] hover:text-gray-900 dark:hover:text-[#f0f0f0] transition-colors duration-200"
+                className="text-sm text-[#888] hover:text-[#f0f0f0] transition-colors duration-200"
               >
                 {link.label}
               </a>

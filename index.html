@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/avatar.png" />
@@ -28,24 +28,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <!--
-      Blocking theme script — runs synchronously before any CSS is applied.
-      Reads localStorage and applies 'dark' class to <html> immediately,
-      preventing a flash of wrong theme on page load.
-    -->
-    <script>
-      ;(function () {
-        var stored = localStorage.getItem('theme')
-        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-        // Default to dark if no stored preference
-        var isDark = stored === 'dark' || (stored === null && prefersDark) || stored === null
-        if (isDark) {
-          document.documentElement.classList.add('dark')
-        } else {
-          document.documentElement.classList.remove('dark')
-        }
-      })()
-    </script>
+
 
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

@@ -1,7 +1,7 @@
 // ─── Personal Info ────────────────────────────────────────────────────────────
 // TODO: Replace placeholder values with your real name, email, and profile URLs
 export const personalInfo = {
-  name: 'Solanki Rahil',
+  name: 'Rahil Solanki',
   initials: '',
   title: 'Software Engineer',
   tagline:
@@ -28,7 +28,7 @@ export const skills = {
     'Next.js',
     'TypeScript',
     'JavaScript',
-    'Redux Toolkit',
+    'Redux',
     'HTML5',
     'CSS3',
     'Tailwind CSS',
@@ -37,9 +37,9 @@ export const skills = {
   ],
   Backend: ['Node.js', 'Express.js', 'MongoDB', 'REST API'],
   'Tools & Platforms': [
-    'Git',
-    'GitHub',
-    'Postman',
+    // 'Git',
+    // 'GitHub',
+    // 'Postman',
     'Microsoft 365',
     'ServiceNow',
     'Active Directory',
@@ -47,6 +47,34 @@ export const skills = {
     'VDI',
   ],
 }
+
+// ─── Key Highlights ───────────────────────────────────────────────────────────
+export const keyHighlights = [
+  { value: '2.5+', label: 'Years Experience' },
+  { value: '10+', label: 'Projects Shipped' },
+  { value: '25%', label: 'Avg Load Time Saved' },
+  { value: '30%', label: 'Code Duplication Cut' },
+]
+
+// ─── Collaboration ────────────────────────────────────────────────────────────
+export const collaboration = [
+  { name: 'Agile / Scrum', desc: 'Sprint planning, daily standups & retrospectives' },
+  { name: 'Cross-functional Teams', desc: 'Partnering with design, product & backend' },
+  { name: 'Code Reviews', desc: 'Maintaining quality with PR feedback loops' },
+  { name: 'Remote Collaboration', desc: 'Async workflows with Slack & Microsoft Teams' },
+]
+
+// ─── Collaboration Tools ──────────────────────────────────────────────────────
+export const collaborationTools = [
+  'Git',
+  'GitHub',
+  'Slack',
+  'MSTeams',
+  'Postman',
+  // 'ServiceNow',
+  // 'Jira',
+  // 'Confluence',
+]
 
 // ─── Work Experience ──────────────────────────────────────────────────────────
 export const experience = [
