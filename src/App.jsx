@@ -15,6 +15,7 @@ export default function App() {
     () => document.documentElement.classList.contains('dark')
   )
 
+  // Light and Dark Theme
   useEffect(() => {
     const root = document.documentElement
     if (isDark) {
